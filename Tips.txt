@@ -1,0 +1,14 @@
+#账户名admin
+#密码admin
+
+#密码指令
+#下方
+# 随机生成一个密码
+./alist admin random
+# 手动设置一个密码,`NEW_PASSWORD`是指你需要设置的密码
+./alist admin set NEW_PASSWORD
+#上方
+
+#打开CMD，将alist.exe文件拖进cmd中，再输入上方密码指令
+
+
