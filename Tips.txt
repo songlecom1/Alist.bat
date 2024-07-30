@@ -12,3 +12,5 @@
 #打开CMD，将alist.exe文件拖进cmd中，再输入上方密码指令
 
 #建议使用Alist.bat
+
+#Alist.exe文件不能删除#
