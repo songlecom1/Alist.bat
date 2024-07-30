@@ -14,3 +14,4 @@
 #建议使用Alist.bat
 
 #Alist.exe文件不能删除#
+关于Alist.exe文件请大家从Alist的GitHub项目自行下载！！！
