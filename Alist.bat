@@ -1,4 +1,4 @@
-@set iasver=0.0.2
+@set iasver=0.0.3
 @setlocal DisableDelayedExpansion
 @echo off
 :MainMenu
@@ -34,5 +34,6 @@ if %_erl%==4 start http://localhost:5244
 if %_erl%==3 alist.exe stop
 if %_erl%==2 alist.exe restart
 if %_erl%==1 alist.exe start
-timeout /t 3
+ping 127.0.0.1 -n 2 > nul
 goto:MainMenu
+
