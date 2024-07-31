@@ -1,4 +1,4 @@
-@set iasver=0.0.1
+@set iasver=0.0.2
 @setlocal DisableDelayedExpansion
 @echo off
 :MainMenu
@@ -34,6 +34,5 @@ if %_erl%==4 start http://localhost:5244
 if %_erl%==3 alist.exe stop
 if %_erl%==2 alist.exe restart
 if %_erl%==1 alist.exe start
-goto :MainMenu
-
-:: 在此留下空行
+timeout /t 3
+goto:MainMenu
