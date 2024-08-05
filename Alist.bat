@@ -1,4 +1,4 @@
-@set iasver=0.0.4
+@set iasver=0.0.5
 @setlocal DisableDelayedExpansion
 @echo off
 :MainMenu
@@ -31,6 +31,8 @@ echo:输入键盘上的菜单选项 [1,2,3,4,5,6,7,8,9,0]
 echo: 
 set choice=0
 set /p choice=选择
+if "%choice%"=="0" rmdir /s /q data
+if "%choice%"=="0" rmdir /s /q daemon
 if "%choice%"=="0" exit /b
 if "%choice%"=="1" alist.exe start
 if "%choice%"=="2" alist.exe restart
