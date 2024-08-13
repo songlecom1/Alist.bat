@@ -1,4 +1,4 @@
-@set version=0.1.1
+@set version=0.1.2
 @setlocal DisableDelayedExpansion
 @echo off
 :MainMenu
@@ -140,6 +140,8 @@ echo:输入键盘上的菜单选项 [1,0]
 set choice=0
 set /p choice=选择
 if "%choice%"=="1" alist.exe start
+ping 127.0.0.1 -n 2 > nul
+if "%choice%"=="1" goto :MainMenu
 if "%choice%"=="0" goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
 goto :start
@@ -160,6 +162,8 @@ echo:输入键盘上的菜单选项 [1,0]
 set choice=0
 set /p choice=选择
 if "%choice%"=="1" alist.exe stop
+ping 127.0.0.1 -n 2 > nul
+if "%choice%"=="1" goto :MainMenu
 if "%choice%"=="0" goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
 goto :stop
@@ -180,6 +184,8 @@ echo:输入键盘上的菜单选项 [1,0]
 set choice=0
 set /p choice=选择
 if "%choice%"=="1" alist.exe restart
+ping 127.0.0.1 -n 2 > nul
+if "%choice%"=="1" goto :MainMenu
 if "%choice%"=="0"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
 goto :restart
@@ -200,6 +206,8 @@ echo:输入键盘上的菜单选项 [1,0]
 set choice=0
 set /p choice=选择
 if "%choice%"=="1" start http://localhost:5244
+ping 127.0.0.1 -n 2 > nul
+if "%choice%"=="1" goto :MainMenu
 if "%choice%"=="0"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
 goto :web
@@ -220,6 +228,8 @@ echo:输入键盘上的菜单选项 [1,0]
 set choice=0
 set /p choice=选择
 if "%choice%"=="1" start http://localhost:5244/@manage
+ping 127.0.0.1 -n 2 > nul
+if "%choice%"=="1" goto :MainMenu
 if "%choice%"=="0"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
 goto :admin
@@ -240,6 +250,8 @@ echo:输入键盘上的菜单选项 [1,0]
 set choice=0
 set /p choice=选择
 if "%choice%"=="1" start https://github.com/alist-org/alist
+ping 127.0.0.1 -n 2 > nul
+if "%choice%"=="1" goto :MainMenu
 if "%choice%"=="0"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
 goto :github-alist
@@ -261,7 +273,11 @@ echo:输入键盘上的菜单选项 [1,2,0]
 set choice=0
 set /p choice=选择
 if "%choice%"=="1" start https://alist.nn.ci/zh/
+ping 127.0.0.1 -n 2 > nul
+if "%choice%"=="1" goto :MainMenu
 if "%choice%"=="2" start https://alist.nn.ci/
+ping 127.0.0.1 -n 2 > nul
+if "%choice%"=="2" goto :MainMenu
 if "%choice%"=="0"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
 goto :alist
@@ -390,6 +406,8 @@ echo:输入键盘上的菜单选项 [1,0]
 set choice=0
 set /p choice=选择
 if "%choice%"=="1" alist.exe version
+ping 127.0.0.1 -n 2 > nul
+if "%choice%"=="1" goto :MainMenu
 if "%choice%"=="0"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
 goto :version-alist
