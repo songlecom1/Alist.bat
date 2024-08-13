@@ -1,4 +1,4 @@
-@set version=0.0.8
+@set version=0.0.9
 @setlocal DisableDelayedExpansion
 @echo off
 :MainMenu
@@ -69,7 +69,7 @@ if "%choice%"=="2" goto :newpassworld
 if "%choice%"=="3" goto :passworld-admin
 if "%choice%"=="0" goto :MainMenu
 ping 127.0.0.1 -n 3 > nul
-goto :MainMenu
+goto :passworld
 
 :random
 alist.exe admin random
@@ -115,7 +115,7 @@ if "%choice%"=="y" rmdir /s /q daemon
 if "%choice%"=="y" exit /b
 if "%choice%"=="n" goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
-goto :MainMenu
+goto :exit
 
 :start
 cls
@@ -137,7 +137,7 @@ if "%choice%"=="N" goto :MainMenu
 if "%choice%"=="y" alist.exe start
 if "%choice%"=="n" goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
-goto :MainMenu
+goto :start
 
 :stop
 cls
@@ -159,7 +159,7 @@ if "%choice%"=="N" goto :MainMenu
 if "%choice%"=="y" alist.exe stop
 if "%choice%"=="n" goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
-goto :MainMenu
+goto :stop
 
 :restart
 cls
@@ -181,7 +181,7 @@ if "%choice%"=="N"  goto :MainMenu
 if "%choice%"=="y" alist.exe restart
 if "%choice%"=="n"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
-goto :MainMenu
+goto :restart
 
 :web
 cls
@@ -203,7 +203,7 @@ if "%choice%"=="N"  goto :MainMenu
 if "%choice%"=="y" start http://localhost:5244
 if "%choice%"=="n"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
-goto :MainMenu
+goto :web
 
 :admin
 cls
@@ -225,7 +225,7 @@ if "%choice%"=="N"  goto :MainMenu
 if "%choice%"=="y" start http://localhost:5244/@manage
 if "%choice%"=="n"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
-goto :MainMenu
+goto :admin
 
 :github-alist
 cls
@@ -247,7 +247,7 @@ if "%choice%"=="N"  goto :MainMenu
 if "%choice%"=="y" start https://github.com/alist-org/alist
 if "%choice%"=="n"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
-goto :MainMenu
+goto :github-alist
 
 :alist
 cls
@@ -269,7 +269,7 @@ if "%choice%"=="1" start https://alist.nn.ci/zh/
 if "%choice%"=="2" start https://alist.nn.ci/
 if "%choice%"=="0"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
-goto :MainMenu
+goto :alist
 
 :version
 cls
@@ -293,7 +293,7 @@ if "%choice%"=="N"  goto :MainMenu
 if "%choice%"=="y" goto :update
 if "%choice%"=="n"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
-goto :MainMenu
+goto :version
 
 :update-github
 start https://github.com/skywyjk/Alist.bat
@@ -335,7 +335,7 @@ if "%choice%"=="1" goto :questionnaire-github
 if "%choice%"=="2" goto :questionnaire-gitee
 if "%choice%"=="0"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
-goto :MainMenu
+goto :update
 
 :questionnaire-github
 cls
@@ -359,7 +359,7 @@ if "%choice%"=="y" goto :update-github
 if "%choice%"=="n" goto :update-github-tyro
 if "%choice%"=="0"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
-goto :MainMenu
+goto :questionnaire-github
 
 :questionnaire-gitee
 cls
@@ -383,4 +383,4 @@ if "%choice%"=="y" goto :update-github
 if "%choice%"=="n" goto :update-github-tyro
 if "%choice%"=="0"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
-goto :MainMenu
+goto :questionnaire-gitee
