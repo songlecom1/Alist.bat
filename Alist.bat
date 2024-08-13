@@ -1,4 +1,4 @@
-@set version=0.1.0
+@set version=0.1.1
 @setlocal DisableDelayedExpansion
 @echo off
 :MainMenu
@@ -12,35 +12,47 @@ echo:
 echo:
 echo:            ___________________________________________________ 
 echo:                                                               
-echo:               [1] 开始Alist服务
-echo:               [2] 重启Alist服务
-echo:               [3] 结束Alist服务
-echo:               [4] 打开Alist网页
-echo:               [5] 打开Alist管理
-echo:               [6] 设置Alist密码
-echo:               [7] 查看Alist项目 
-echo:               [8] 进入Alist官网
-echo:               [9] 查询本项目版本
-echo:               [0] 退出
+echo:               [01] 开始Alist服务
+echo:               [02] 重启Alist服务
+echo:               [03] 结束Alist服务
+echo:               [04] 打开Alist网页
+echo:               [05] 打开Alist管理
+echo:               [06] 设置Alist密码
+echo:               [07] 查看Alist项目 
+echo:               [08] 进入Alist官网
+echo:               [09] 查询Alist版本
+echo:               [10] 查询本项目版本
+echo:               [00] 退出
 echo:            ___________________________________________________
 echo:         
 echo:         制作^ By sky
 echo:         
 echo:用键盘输入完后,请按下回车键！
-echo:输入键盘上的菜单选项 [1,2,3,4,5,6,7,8,9,0]
+echo:输入键盘上的菜单选项 [1,2,3,4,5,6,7,8,9,10,0]
 echo: 
 set choice=0
 set /p choice=选择
 if "%choice%"=="0" goto :exit
+if "%choice%"=="00" goto :exit
 if "%choice%"=="1" goto :start
+if "%choice%"=="01" goto :start
 if "%choice%"=="2" goto :restart
+if "%choice%"=="02" goto :restart
 if "%choice%"=="3" goto :stop
+if "%choice%"=="03" goto :stop
 if "%choice%"=="4" goto :web
+if "%choice%"=="04" goto :web
 if "%choice%"=="5" goto :admin
+if "%choice%"=="05" goto :admin
 if "%choice%"=="6" goto :passworld
+if "%choice%"=="06" goto :passworld
 if "%choice%"=="7" goto :github-alist
+if "%choice%"=="07" goto :github-alist
 if "%choice%"=="8" goto :alist
-if "%choice%"=="9" goto :version
+if "%choice%"=="08" goto :alist
+if "%choice%"=="9" goto :version-alist
+if "%choice%"=="09" goto :version-alist
+if "%choice%"=="10" goto :version
 ping 127.0.0.1 -n 2 > nul
 goto :MainMenu
 
@@ -361,3 +373,24 @@ if "%choice%"=="2" goto :update-gitee-tyro
 if "%choice%"=="0"  goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
 goto :questionnaire-gitee
+
+:version-alist
+cls
+echo:
+echo:
+echo:
+echo:                  是否查询Alist版本
+echo:            ___________________________________________________ 
+echo:                                                                            
+echo:               [1] 查询
+echo:               [0] 返回主菜单
+echo:            ___________________________________________________ 
+echo:         
+echo:输入键盘上的菜单选项 [1,0]
+set choice=0
+set /p choice=选择
+if "%choice%"=="1" alist.exe version
+if "%choice%"=="0"  goto :MainMenu
+ping 127.0.0.1 -n 2 > nul
+goto :version-alist
+
