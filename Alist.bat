@@ -1,4 +1,4 @@
-@set version=0.1.4
+@set version=0.1.5
 @setlocal DisableDelayedExpansion
 @echo off
 :MainMenu
@@ -115,6 +115,11 @@ goto :start-make
    		 set system-random=!system-random!!systemy!
 )
 echo,&echo 生成的随机密码为： !system-random!
+set user-random=
+set input=
+set a=
+set num=
+set n=
 pause
 goto :systemrandom
 
@@ -133,11 +138,16 @@ goto :systemrandom
 	echo ========%num% 位数随机密码生成中========
 	set str=!input!
 		for /l %%i in (1,1,%num%) do (
-  		set /a num=!random!%%!a!
+  		set /a num=!random!%%a!
    		call set usery=%%str:~!num!,1%%
     	set user-random=!user-random!!usery!
 )
 echo,&echo 生成的随机密码为： !user-random!
+set system-random=
+set input=
+set a=
+set num=
+set n=
 pause
 goto :userrandom
 
@@ -149,11 +159,13 @@ cls
 
 :userrandom
 alist.exe admin set "%user-random%"
+set user-random=
 ping 127.0.0.1 -n 2 > nul
 goto :MainMenu
 
 :systemrandom
 alist.exe admin set "%system-random%"
+set system-random=
 ping 127.0.0.1 -n 2 > nul
 goto :MainMenu
 
