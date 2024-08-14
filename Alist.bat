@@ -1,4 +1,4 @@
-@set version=0.1.2
+@set version=0.1.3
 @setlocal DisableDelayedExpansion
 @echo off
 :MainMenu
@@ -80,7 +80,7 @@ if "%choice%"=="1" goto :random
 if "%choice%"=="2" goto :newpassworld
 if "%choice%"=="3" goto :passworld-admin
 if "%choice%"=="0" goto :MainMenu
-ping 127.0.0.1 -n 3 > nul
+ping 127.0.0.1 -n 2 > nul
 goto :passworld
 
 :random
@@ -334,7 +334,7 @@ echo:            ___________________________________________________
 echo:                                                                            
 echo:               [1] 进入GitHub渠道
 echo:               [2] 进入Gitee渠道
-echo:               [0] 返回主菜单
+echo:               [0] 返回上一步
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,2,0]
@@ -342,7 +342,7 @@ set choice=0
 set /p choice=选择
 if "%choice%"=="1" goto :questionnaire-github
 if "%choice%"=="2" goto :questionnaire-gitee
-if "%choice%"=="0"  goto :MainMenu
+if "%choice%"=="0"  goto :version
 ping 127.0.0.1 -n 2 > nul
 goto :update
 
@@ -356,7 +356,7 @@ echo:            ___________________________________________________
 echo:                                                                            
 echo:               [1] 对GitHub非常熟悉
 echo:               [2] 对GitHub不太熟悉
-echo:               [0] 返回主菜单
+echo:               [0] 返回上一步
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,2,0]
@@ -364,7 +364,7 @@ set choice=0
 set /p choice=选择
 if "%choice%"=="1" goto :update-github
 if "%choice%"=="2" goto :update-github-tyro
-if "%choice%"=="0"  goto :MainMenu
+if "%choice%"=="0"  goto :update
 ping 127.0.0.1 -n 2 > nul
 goto :questionnaire-github
 
@@ -378,7 +378,7 @@ echo:            ___________________________________________________
 echo:                                                                            
 echo:               [1] 对Gitee非常熟悉
 echo:               [2] 对Gitee不太熟悉
-echo:               [0] 返回主菜单
+echo:               [0] 返回上一步
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,2,0]
@@ -386,7 +386,7 @@ set choice=0
 set /p choice=选择
 if "%choice%"=="1" goto :update-gitee
 if "%choice%"=="2" goto :update-gitee-tyro
-if "%choice%"=="0"  goto :MainMenu
+if "%choice%"=="0"  goto :update
 ping 127.0.0.1 -n 2 > nul
 goto :questionnaire-gitee
 
