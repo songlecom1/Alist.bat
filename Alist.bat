@@ -1,4 +1,4 @@
-@set version=0.1.3
+@set version=0.1.4
 @setlocal DisableDelayedExpansion
 @echo off
 :MainMenu
@@ -66,9 +66,10 @@ echo:
 echo:                      欢迎进入Alist密码设置
 echo:            ___________________________________________________ 
 echo:                                                                            
-echo:               [1] 随机设置Alist密码
-echo:               [2] 自定义设置Alist密码
-echo:               [3] 将Alist密码设置为admin
+echo:               [1] 随机设置Alist密码（自带）
+echo:               [2] 随机设置Alist密码（生成）
+echo:               [3] 自定义设置Alist密码
+echo:               [4] 将Alist密码设置为admin
 echo:               [0] 返回主菜单
 echo:            ___________________________________________________
 echo:         
@@ -77,8 +78,9 @@ echo:
 set choice=0
 set /p choice=选择
 if "%choice%"=="1" goto :random
-if "%choice%"=="2" goto :newpassworld
-if "%choice%"=="3" goto :passworld-admin
+if "%choice%"=="2" goto :random-make
+if "%choice%"=="3" goto :newpassworld
+if "%choice%"=="4" goto :passworld-admin
 if "%choice%"=="0" goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
 goto :passworld
@@ -86,6 +88,73 @@ goto :passworld
 :random
 alist.exe admin random
 ping 127.0.0.1 -n 6 > nul
+goto :MainMenu
+
+:random-make
+@echo off 
+title 随机密码生成器 By sky
+setlocal enabledelayedexpansion
+cls
+goto :start-make
+
+:start-make
+	echo 请选择密码本：&echo. 1：系统默认密码本(英文大小写加数字) &echo. 2：用户自定义的密码本
+	set/p "n=>"
+	if %n%==1  goto :random-system
+	if %n%==2  goto :random-user
+	if %n% gtr 2 goto :random-retry
+
+:random-system
+	echo 请设置随机密码的位数：
+	set/p "num=>"
+	echo ========%num% 位数随机密码生成中========
+	set str=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+		 for /l %%i in (1,1,%num%) do (
+   		 set /a num=!random!%%62
+   		 call set systemy=%%str:~!num!,1%%
+   		 set system-random=!system-random!!systemy!
+)
+echo,&echo 生成的随机密码为： !system-random!
+pause
+goto :systemrandom
+
+:random-user
+	set "input="
+	set /p input=-^> 请输入密码本:
+	set a=0
+:her
+	set u=!input:~%a%,1!
+	if not "!u!"=="" (set/a a+=1
+	goto her
+) else (echo 字符串长度：%a%)
+:custom
+	echo 请设置随机密码的位数：
+	set/p "num=>"
+	echo ========%num% 位数随机密码生成中========
+	set str=!input!
+		for /l %%i in (1,1,%num%) do (
+  		set /a num=!random!%%!a!
+   		call set usery=%%str:~!num!,1%%
+    	set user-random=!user-random!!usery!
+)
+echo,&echo 生成的随机密码为： !user-random!
+pause
+goto :userrandom
+
+:random-retry
+	echo 选择错误，请重新选择！
+ping 127.0.0.1 -n 2 > nul
+cls
+	goto :start-make
+
+:userrandom
+alist.exe admin set "%user-random%"
+ping 127.0.0.1 -n 2 > nul
+goto :MainMenu
+
+:systemrandom
+alist.exe admin set "%system-random%"
+ping 127.0.0.1 -n 2 > nul
 goto :MainMenu
 
 :passworld-admin
