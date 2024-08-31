@@ -1,4 +1,4 @@
-@set version=0.1.6
+@set version=0.1.7
 @setlocal DisableDelayedExpansion
 @echo off
 :MainMenu
@@ -30,7 +30,7 @@ echo:
 echo:用键盘输入完后,请按下回车键！
 echo:输入键盘上的菜单选项 [1,2,3,4,5,6,7,8,9,10,0]
 echo: 
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="0" goto :exit
 if "%choice%"=="00" goto :exit
@@ -75,7 +75,7 @@ echo:            ___________________________________________________
 echo:         
 echo:输入键盘上的菜单选项 [1,2,3,4,0]
 echo: 
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="1" goto :random
 if "%choice%"=="2" goto :random-make
@@ -196,7 +196,7 @@ echo:               [0] 返回主菜单
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,0]
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="1" taskkill -f -t -im alist.exe
 if "%choice%"=="1" rmdir /s /q data
@@ -219,7 +219,7 @@ echo:               [0] 返回主菜单
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,0]
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="1" alist.exe start
 ping 127.0.0.1 -n 2 > nul
@@ -241,7 +241,7 @@ echo:               [0] 返回主菜单
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,0]
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="1" alist.exe stop
 ping 127.0.0.1 -n 2 > nul
@@ -263,7 +263,7 @@ echo:               [0] 返回主菜单
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,0]
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="1" alist.exe restart
 ping 127.0.0.1 -n 2 > nul
@@ -285,7 +285,7 @@ echo:               [0] 返回主菜单
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,0]
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="1" start http://localhost:5244
 ping 127.0.0.1 -n 2 > nul
@@ -307,7 +307,7 @@ echo:               [0] 返回主菜单
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,0]
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="1" start http://localhost:5244/@manage
 ping 127.0.0.1 -n 2 > nul
@@ -329,7 +329,7 @@ echo:               [0] 返回主菜单
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,0]
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="1" start https://github.com/alist-org/alist
 ping 127.0.0.1 -n 2 > nul
@@ -352,7 +352,7 @@ echo:               [0] 返回主菜单
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,2,0]
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="1" start https://alist.nn.ci/zh/
 ping 127.0.0.1 -n 2 > nul
@@ -379,7 +379,7 @@ echo:               [0] 返回主菜单
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,0]
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="1" goto :update
 if "%choice%"=="0"  goto :MainMenu
@@ -420,7 +420,7 @@ echo:               [0] 返回上一步
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,2,0]
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="1" goto :questionnaire-github
 if "%choice%"=="2" goto :questionnaire-gitee
@@ -442,7 +442,7 @@ echo:               [0] 返回上一步
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,2,0]
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="1" goto :update-github
 if "%choice%"=="2" goto :update-github-tyro
@@ -464,7 +464,7 @@ echo:               [0] 返回上一步
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,2,0]
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="1" goto :update-gitee
 if "%choice%"=="2" goto :update-gitee-tyro
@@ -485,7 +485,7 @@ echo:               [0] 返回主菜单
 echo:            ___________________________________________________ 
 echo:         
 echo:输入键盘上的菜单选项 [1,0]
-set choice=0
+set choice=
 set /p choice=选择
 if "%choice%"=="1" alist.exe version
 ping 127.0.0.1 -n 2 > nul
