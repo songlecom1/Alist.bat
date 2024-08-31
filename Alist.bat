@@ -1,6 +1,28 @@
-@set version=0.1.7
+@set version=0.1.8
 @setlocal DisableDelayedExpansion
 @echo off
+:MainMenu-start
+title 本项目正在启动中，请稍候
+echo:
+echo:
+echo:
+echo:
+echo:                                  ,ggg,                                 
+echo:                                  dP""8I   ,dPYb,                   I8   
+echo:                                 dP   88   IP'`Yb                   I8   
+echo:                                dP    88   I8  8I  gg            88888888
+echo:                               ,8'    88   I8  8'  ""               I8   
+echo:                               d88888888   I8 dP   gg     ,g,       I8   
+echo:                         __   ,8"     88   I8dP    88    ,8'8,      I8   
+echo:                        dP"  ,8P      Y8   I8P     88   ,8'  Yb    ,I8,  
+echo:                        Yb,_,dP       `8b,,d8b,_ _,88,_,8'_   8)  ,d88b, 
+echo:                         "Y8P"         `Y88P'"Y888P""Y8P' "YY8P8P88P""Y88
+echo:                                                   
+echo:                                                 
+echo:                                                 
+ping 127.0.0.1 -n 4 > nul
+goto :MainMenu
+
 :MainMenu
 cls
 title  Alist脚本服务_sky制作 v%version%
@@ -8,7 +30,7 @@ echo:
 echo:
 echo:
 echo:
-echo:
+echo:                      Alist脚本服务_sky制作 v%version%
 echo:
 echo:            ___________________________________________________ 
 echo:                                                               
@@ -201,6 +223,7 @@ set /p choice=选择
 if "%choice%"=="1" taskkill -f -t -im alist.exe
 if "%choice%"=="1" rmdir /s /q data
 if "%choice%"=="1" rmdir /s /q daemon
+if "%choice%"=="1" del /s /q null
 if "%choice%"=="1" exit /b
 if "%choice%"=="0" goto :MainMenu
 ping 127.0.0.1 -n 2 > nul
