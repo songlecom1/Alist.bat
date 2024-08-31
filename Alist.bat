@@ -1,4 +1,4 @@
-@set version=0.1.5
+@set version=0.1.6
 @setlocal DisableDelayedExpansion
 @echo off
 :MainMenu
@@ -73,7 +73,7 @@ echo:               [4] 将Alist密码设置为admin
 echo:               [0] 返回主菜单
 echo:            ___________________________________________________
 echo:         
-echo:输入键盘上的菜单选项 [1,2,3,0]
+echo:输入键盘上的菜单选项 [1,2,3,4,0]
 echo: 
 set choice=0
 set /p choice=选择
@@ -98,8 +98,9 @@ cls
 goto :start-make
 
 :start-make
-	echo 请选择密码本：&echo. 1：系统默认密码本(英文大小写加数字) &echo. 2：用户自定义的密码本
+	echo 请选择密码本：&echo. 1：系统默认密码本(英文大小写加数字) &echo. 2：用户自定义的密码本 &echo. 0：返回上一步
 	set/p "n=>"
+	if %n%==0  goto :passworld
 	if %n%==1  goto :random-system
 	if %n%==2  goto :random-user
 	if %n% gtr 2 goto :random-retry
