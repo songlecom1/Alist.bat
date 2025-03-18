@@ -19,4 +19,4 @@
 
 alist官方仓库 ：   https://github.com/AlistGo/alist
 alist官方网站 ：   https://alist.nn.ci/zh/
-                          https://alist.nn.ci/
+                  https://alist.nn.ci/
