@@ -8,7 +8,8 @@ Alist的github仓库:https://github.com/alist-org/alist
 2. 设置Alist密码.bat
 3. 开始Alist服务.vbs
 
-先双击运行文件2，设置alist账号密码为admin。
-然后双击运行文件3，alist.exe将后台静默运行。
-然后浏览器打开127.0.0.1:5244。
-记得登陆后及时修改账号密码。
+使用方法：
+* 先双击运行文件2，设置alist账号密码为admin。
+* 然后双击运行文件3，alist.exe将后台静默运行。
+* 然后浏览器打开127.0.0.1:5244。
+* 记得登陆后及时修改账号密码。
